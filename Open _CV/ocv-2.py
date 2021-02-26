@@ -79,5 +79,74 @@ matrix = cv2.getRotationMatrix2D(center, -45, 1.0)
 # Performing the affine transformation 
 rotated = cv2.warpAffine(image, matrix, (w, h))
                     
+                    
+ # The 2 main functions used here are –
+
+# 1) getRotationMatrix2D()
+# 2) warpAffine()
+                    
+  #getRotationMatrix2D()
+#It takes 3 arguments –
+
+#center – The center coordinates of the image
+#Angle – The angle (in degrees) by which the image should be rotated
+#Scale – The scaling factor
+        
+                    
+  #It returns a 2*3 matrix consisting of values derived from alpha and beta
+#alpha = scale * cos(angle)
+#beta = scale * sine(angle)
+                    
+#  warpAffine()
+
+#The function warpAffine transforms the source image using the rotation matrix:                  
+ 
+  # dst(x, y) = src(M11X + M12Y + M13, M21X + M22Y + M23)
+                    
+   #Here M is the rotation matrix, described above.
+#It calculates new x, y co-ordinates of the image and transforms it.              
+    
+    #############################################Drawing a Rectangle
+#It is an in-place operation.      ----------------An in-place operation is an operation that changes 
+                    #-------------------------------directly the content of a given Tensor without making a copy. 
+                    
+  ## We are copying the original image, 
+# as it is an in-place operation. 
+output = image.copy() 
+
+# Using the rectangle() function to create a rectangle. 
+rectangle = cv2.rectangle(output, (1500, 900), 
+						(600, 400), (255, 0, 0), 2) 
+                    
+   ###It takes in 5 arguments –
+
+#Image
+#Top-left corner co-ordinates
+#Bottom-right corner co-ordinates
+#Color (in BGR format)
+#Line width  
+                    
+   #Displaying text
+# It is also an in-place operation         
+                    # Copying the original image 
+output = image.copy() 
+
+# Adding the text using putText() function 
+text = cv2.putText(output, 'Demo', (500, 550), 
+				cv2.FONT_HERSHEY_SIMPLEX, 4, (255, 0, 0), 2) 
+                    
+ #t takes in 7 arguments –
+
+#Image
+#Text to be displayed
+#Bottom-left corner co-ordinates, from where the text should start
+#Font
+#Font size
+#Color (BGR format)
+#Line width                   
+                    
+
+                  
+         
  
 
